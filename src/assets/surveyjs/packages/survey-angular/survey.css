@@ -247,8 +247,8 @@
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_other input,
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_dropdown_control,
         .sv_main .sv_container .sv_body .sv_p_root .sv_q input:not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="image"]):not([type="checkbox"]):not([type="radio"]),
-        .sv_main .sv_container .sv_body .sv_p_root .sv_q select {
-          height: calc(2em + 1px); }
+      
+        
         .sv_main .sv_container .sv_body .sv_p_root .sv_q div.sv_q_text_root,
         .sv_main .sv_container .sv_body .sv_p_root .sv_q div.sv_q_dropdown_control {
           min-height: 2.43em;
