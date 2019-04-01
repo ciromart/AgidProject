@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   title = 'rationalproject';
+  survey: any;
 
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
           "type": "text",
           "name": "question1",
           "title": {
-           "it": "Nome Prova"
+           "it": "Nome Prova",
+           "en": "Nametest"
           },
           "isRequired": true,
           "placeHolder": {
@@ -200,11 +202,13 @@ export class AppComponent implements OnInit {
       }
      };
     StylesManager.applyTheme("winterstone");
-    var survey = new Survey(surveyJSON);
+   this.survey = new Survey(surveyJSON);
     //survey.onComplete.add(sendDataToServer);
-    SurveyNG.render("surveyElement", { model: survey });
+    SurveyNG.render("surveyElement", { model: this.survey });
   }
   switchLanguage(language: string) {
+    this.survey.locale = language;
+    this.survey.render();
     this.translate.use(language).subscribe(resp =>{
       console.log('resp', resp);
     });
