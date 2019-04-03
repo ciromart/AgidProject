@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
           "name": "question1",
           "title": {
            "it": "Nome Prova",
-           "en": "Name text"
+           "en": "Nametest"
           },
           "isRequired": true,
           "placeHolder": {
@@ -202,7 +202,7 @@ export class AppComponent implements OnInit {
       }
      };
     StylesManager.applyTheme("winterstone");
-    this.survey = new Survey(surveyJSON);
+   this.survey = new Survey(surveyJSON);
     //survey.onComplete.add(sendDataToServer);
     SurveyNG.render("surveyElement", { model: this.survey });
   }
