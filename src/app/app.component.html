@@ -1,6 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <div style="text-align:center">
+<div style="text-align:center">
     <div>
       <div class="it-header-wrapper">
         <div class="it-header-slim-wrapper">
@@ -43,6 +41,14 @@
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 col-xs-4">
+                        <svg style="border-radius: 50%;cursor: pointer;" routerLink="/profilo"  class="icon icon-sm icon-primary bg-light text-white "><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-user"></use></svg>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4">
+                      <span style="color:white;    font-size: initial;"for="account">M.Rossi</span>    
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -50,11 +56,11 @@
           </div>
         </div>
         <div class="it-nav-wrapper">
-          <div class="it-header-center-wrapper">
+          <div class="it-header-center-wrapper" style="height: 100px;">
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <div class="it-header-center-content-wrapper">
+                  <div class="it-header-center-content-wrapper" >
                     <div class="it-brand-wrapper">
                       <a href="#">
                         <div class="it-brand-text">
@@ -62,42 +68,7 @@
                         </div>
                       </a>
                     </div>
-                    <div class="it-right-zone">
-                      <div class="it-socials d-none d-md-flex">
-                        <span>Seguici su</span>
-                        <ul>
-                          <li>
-                            <a href="#" aria-label="Facebook" target="_blank">
-                              <svg class="icon">
-                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-facebook"></use>
-                              </svg>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" aria-label="Github" target="_blank">
-                              <svg class="icon">
-                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-github"></use>
-                              </svg>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" aria-label="Twitter" target="_blank">
-                              <svg class="icon">
-                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-twitter"></use>
-                              </svg>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="it-search-wrapper">
-                        <span class="d-none d-md-block">Cerca</span>
-                        <a class="search-link rounded-icon" aria-label="Cerca" href="#">
-                          <svg class="icon">
-                            <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-search"></use>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -139,64 +110,6 @@
     </div>
   </div>
 
-
-  <div class="wrapper" style=" position: relative;
-  align-self: center;
-  float: unset;
-  text-align: -webkit-center;">
-    <div >
-      <div class="col-12 col-lg-6 col-md-8 col-sm-10 col-xs-12">
-        <!--start card-->
-        <div class="card-wrapper card-space" >
-          <div class="card card-bg">
-            <div class="card-body">
-              <h3 class="card-title">Benvenuto</h3>
-              <h5 class="card-title">Accedi con Username e Password</h5>
-              <div class="mainform">
-              <div class="form-group" >
-                <label for="formGroupExampleInput2">Username</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Testo di esempio">
-
-              </div>
-              <div class="form-group"  >
-              <label for="exampleInputPassword">Password</label>
-                <input type="password" class="form-control input-password" id="exampleInputPassword"
-                  aria-labelledby="infoPassword" placeholder="Inserire Password">
-                <span class="password-icon" aria-hidden="true">
-                  <svg class="password-icon-visible icon icon-sm">
-                    <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-visible"></use>
-                  </svg>
-                  <svg class="password-icon-invisible icon icon-sm d-none">
-                    <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-invisible"></use>
-                  </svg>
-                </span> 
-              </div>
-              <div class="form-group" id="buttonform">
-              <button class="btn btn-primary btn-sm">Login</button>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-    </div>
-
-  </div>
-
-<footer>
-    <div class="it-header-slim-wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="it-header-slim-wrapper-content">
-                <a class="d-none d-lg-block navbar-brand" href="#">Ente appartenenza/Owner</a>
-                <small style="color:white;">&copy; Copyright 2019, Example Corporation</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-</footer>
+<div >       
   <router-outlet></router-outlet>
 </div>
