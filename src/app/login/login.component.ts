@@ -1,27 +1,27 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Survey, SurveyModel, SurveyNG, SurveyWindowNG, StylesManager } from '../assets/surveyjs/packages/survey-angular/survey.angular';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { StylesManager, Survey, SurveyNG } from 'dist/rationalproject/assets/surveyjs/packages/survey-angular/survey.angular';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class AppComponent implements OnInit{
+export class LoginComponent implements OnInit {
   title = 'rationalproject';
   survey: any;
   model: any = {};
-  appHeaderItems = [];
-    selectedHeaderItemIndex;
-    selectedSubNavItemIndex;
+
+
+  
+
   constructor(private translate: TranslateService,private route: Router) {
     translate.setDefaultLang('en');
   }
 
   ngOnInit() {
-  
+
     var surveyJSON = {
       "locale": "it",
       "focusFirstQuestionAutomatic": false,
@@ -224,7 +224,8 @@ export class AppComponent implements OnInit{
       alert('Compilare i campi \'Username\' e \'Password\' ');
     } else {
         if(this.model.username=="admin" && this.model.password=="password"){
-          this.route.navigate(['home']);
+         
+          this.route.navigateByUrl('/welcome/qualifiche');
         }
     }
   }
