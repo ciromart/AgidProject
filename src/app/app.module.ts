@@ -34,6 +34,7 @@ export function loadConfig(oidcConfigService: OidcConfigService) {
    return () => oidcConfigService.load_using_stsServer('https://accounts.google.com');
 }
 
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -41,13 +42,10 @@ export function loadConfig(oidcConfigService: OidcConfigService) {
       WelcomePageComponent,
       DettaglioVerificheComponent,
       ProfiloComponent,
-      ForbiddenComponent,
-      HomeComponent,
       AutoLoginComponent,
-      NavigationComponent,
-      UnauthorizedComponent
-
-      
+      ForbiddenComponent,
+      UnauthorizedComponent,
+      NavigationComponent
    ],
    imports: [
       FormsModule,

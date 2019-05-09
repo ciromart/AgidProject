@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { StylesManager, Survey, SurveyNG } from 'dist/rationalproject/assets/surveyjs/packages/survey-angular/survey.angular';
+//import { StylesManager, Survey, SurveyNG } from 'AgidProject2/src/assets/surveyjs/packages/survey-angular/survey.angular';
 
 @Component({
   selector: 'app-login',
@@ -206,17 +206,17 @@ export class LoginComponent implements OnInit {
         "it": "finisci"
       }
     };
-    StylesManager.applyTheme("winterstone");
-    this.survey = new Survey(surveyJSON);
+   // StylesManager.applyTheme("winterstone");
+   // this.survey = new Survey(surveyJSON);
     //survey.onComplete.add(sendDataToServer);
-    SurveyNG.render("surveyElement", { model: this.survey });
+   // SurveyNG.render("surveyElement", { model: this.survey });
   }
   switchLanguage(language: string) {
-    this.survey.locale = language;
-    this.survey.render();
-    this.translate.use(language).subscribe(resp => {
-      console.log('resp', resp);
-    });
+   // this.survey.locale = language;
+   // this.survey.render();
+   // this.translate.use(language).subscribe(resp => {
+   //   console.log('resp', resp);
+   // });
   }
 
   login() {

@@ -11,6 +11,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
+
 const routes: Routes = [
   
  //{ path: 'home', component: HomeComponent },
@@ -28,6 +29,11 @@ const routes: Routes = [
   { path: 'autologin', component: AutoLoginComponent },
   { path: 'Forbidden', component: ForbiddenComponent },
   { path: 'Unauthorized', component: UnauthorizedComponent },
+  { path: 'dettaglio-verifiche', component: DettaglioVerificheComponent},
+  { path: 'profilo', component: ProfiloComponent}
+
+
+
 ];
 
 @NgModule({
