@@ -220,13 +220,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.model.username == undefined || this.model.password == undefined || this.model.username == '' || this.model.password == '') {
+   /*  if (this.model.username == undefined || this.model.password == undefined || this.model.username == '' || this.model.password == '') {
       alert('Compilare i campi \'Username\' e \'Password\' ');
     } else {
         if(this.model.username=="admin" && this.model.password=="password"){
          
           this.route.navigateByUrl('/welcome/qualifiche');
         }
-    }
+    } */
+    this.route.navigateByUrl('/welcome/qualifiche');
+
   }
 }

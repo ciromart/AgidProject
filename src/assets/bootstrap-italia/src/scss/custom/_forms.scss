@@ -22,9 +22,9 @@ label {
     top: 0;
     font-size: 1rem;
     cursor: text;
-    display: block;
+
     max-width: 100%;
-    width: auto;
+  
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -71,7 +71,7 @@ textarea {
   padding: $input-spacing-y $input-spacing-x;
   outline: 0;
   height: $input-height;
-  width: 100%;
+
   box-shadow: none;
   transition: 0.2s ease-out;
   font-weight: 700;
@@ -133,13 +133,13 @@ textarea {
   }
 
   &.is-valid ~ .warning-feedback {
-    display: block;
+ 
   }
 }
 
 .warning-feedback {
-  display: none;
-  width: 100%;
+
+
   margin-top: 0.25rem;
   font-size: 0.777rem;
   color: $warning;

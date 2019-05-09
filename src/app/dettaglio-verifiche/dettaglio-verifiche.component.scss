@@ -3,17 +3,28 @@
     left: 2%;
     right: 2%;;
 }
+
+.card-wrapper card-space{
+    width: auto;
+    padding: 30px;
+ 
+    
+}
 .wrapper { 
-    height: -webkit-fill-available;
+   /*  height: -webkit-fill-available;
 
     background-repeat: no-repeat;
 
     background-size: cover;
     background-position: center center;
-  
+    padding: 30px;
     overflow: hidden;
    
-   
-   
+    */
+}
    /*  height: -webkit-fill-available; */
+ 
+  .form-control{
+      display: inline;
+      width: auto;
   }

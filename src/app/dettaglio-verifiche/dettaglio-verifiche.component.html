@@ -1,62 +1,83 @@
-<div class="wrapper">
-    <h4 style="margin-top: 2%;margin-left: 2%;">Verifica Sottomissione Oracle</h4>
-    <form class="form-group" name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
-  <div class="table-responsive">
-      <table class="table table-hover" >
-          <thead>
-            <tr>
-              <th scope="col">Nome Campo</th>
-              <th scope="col">Valore</th>
-              <th scope="col" class="text-danger">Anomalia</th>
-              <th scope="col">Opzioni</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td scope="row">Eventuali certificazioni</td>
-              <td>Iso 27001....</td>
-              <td *ngIf="disable==true" class="text-danger"><span >{{this.model.input1}}</span>
-              </td>
-              <td *ngIf="!disable"> <input type="text" class="form-control" name="input1" [(ngModel)]="model.input1" #input1="ngModel" required  >
-              </td>
-              <td *ngIf="disable==true"><button class="btn btn-primary btn-sm" (click)="setError()">Modifica</button></td>
-              <td *ngIf="disable==false"><button class="btn btn-primary btn-sm" (click)="confirmChange(model.input1)">Conferma</button></td>
-            </tr>
-            <tr>
-              <td scope="row">Tempi di attivazione</td>
-              <td>I tempi devono rispettare.....</td>
-              <td *ngIf="disable1==true"class="text-danger"><span >{{this.model.input2}}</span>
-              </td>
-              <td *ngIf="!disable1"> <input type="text" class="form-control" name="input2" [(ngModel)]="model.input2" #input2="ngModel" required  >
-              </td>
-              <td *ngIf="disable1==true"><button class="btn btn-primary btn-sm" (click)="setError1()">Modifica</button></td>
-              <td *ngIf="disable1==false"><button class="btn btn-primary btn-sm" (click)="confirmChange1(model.input2)">Conferma</button></td>
-             </tr>
-            <tr>
-              <td scope="row">Formati</td>
-              <td>I formati devono...</td>
-              <td>OK</td>
-              <td><button class="btn btn-primary btn-sm" >Modifica</button></td>
-            </tr>
-          </tbody>
-        </table>
+
+ 
+<div class="row">
+  <div class="col-12 ">
+    <!--start card-->
+    <div class="card-wrapper card-space">
+      <div class="card card-bg">
+        <div class="card-body">
+        
+            <h4>Verifica Sottomissione Oracle</h4>
+            <form class="form-group" name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome Campo</th>
+                      <th scope="col">Valore</th>
+                      <th scope="col" class="text-danger">Anomalia</th>
+                      <th scope="col">Opzioni</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">Eventuali certificazioni</td>
+                      <td>Iso 27001....</td>
+                      <td *ngIf="disable==true" class="text-danger"><span>{{this.model.input1}}</span>
+                      </td>
+                      <td *ngIf="!disable"> <input type="text" class="form-control" name="input1" [(ngModel)]="model.input1"
+                          #input1="ngModel" required>
+                      </td>
+                      <td *ngIf="disable==true"><button class="btn btn-primary btn-sm" (click)="setError()">Modifica</button></td>
+                      <td *ngIf="disable==false"><button class="btn btn-primary btn-sm"
+                          (click)="confirmChange(model.input1)">Conferma</button></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Tempi di attivazione</td>
+                      <td>I tempi devono rispettare.....</td>
+                      <td *ngIf="disable1==true" class="text-danger"><span>{{this.model.input2}}</span>
+                      </td>
+                      <td *ngIf="!disable1"> <input type="text" class="form-control" name="input2" [(ngModel)]="model.input2"
+                          #input2="ngModel" required>
+                      </td>
+                      <td *ngIf="disable1==true"><button class="btn btn-primary btn-sm" (click)="setError1()">Modifica</button>
+                      </td>
+                      <td *ngIf="disable1==false"><button class="btn btn-primary btn-sm"
+                          (click)="confirmChange1(model.input2)">Conferma</button></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Formati</td>
+                      <td>I formati devono...</td>
+                      <td>OK</td>
+                      <td><button class="btn btn-primary btn-sm">Modifica</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+          
+          </div>
+          <!--end card-->
+        </div>
+      </div>
     </div>
-  </form>
-  </div>
 
   
-      
-  <footer>
-      <div class="it-header-slim-wrapper">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="it-header-slim-wrapper-content">
-                  <a class="d-none d-lg-block navbar-brand" href="#">Ente appartenenza/Owner</a>
-                  <small style="color:white;">&copy; Copyright 2019, Example Corporation</small>
-                </div>
-              </div>
-            </div>
+
+
+
+<footer>
+  <div class="it-header-slim-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-header-slim-wrapper-content">
+            <a class="d-none d-lg-block navbar-brand" href="#">Ente appartenenza/Owner</a>
+            <small style="color:white;">&copy; Copyright 2019, Example Corporation</small>
           </div>
         </div>
-  </footer>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -22,6 +22,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/knockout": "^3.4.64",
+    "angular-auth-oidc-client": "^9.0.7",
     "core-js": "^2.5.4",
     "messageformat": "^2.0.2",
     "ngx-translate-messageformat-compiler": "^4.4.0",

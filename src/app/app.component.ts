@@ -3,214 +3,47 @@ import { Survey, SurveyModel, SurveyNG, SurveyWindowNG, StylesManager } from '..
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { OidcSecurityService, AuthorizationResult, AuthorizationState } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'rationalproject';
   survey: any;
   model: any = {};
   appHeaderItems = [];
-    selectedHeaderItemIndex;
-    selectedSubNavItemIndex;
-  constructor(private translate: TranslateService,private route: Router) {
+  selectedHeaderItemIndex;
+  selectedSubNavItemIndex;
+  constructor(private translate: TranslateService, private route: Router, public oidcSecurityService: OidcSecurityService,
+    private router: Router
+  ) {
+    if (this.oidcSecurityService.moduleSetup) {
+      this.onOidcModuleSetup();
+    } else {
+      this.oidcSecurityService.onModuleSetup.subscribe(() => {
+        this.onOidcModuleSetup();
+      });
+    }
+
+    this.oidcSecurityService.onAuthorizationResult.subscribe(
+      (authorizationResult: AuthorizationResult) => {
+        this.onAuthorizationResultComplete(authorizationResult);
+      });
+
     translate.setDefaultLang('en');
   }
 
+
+
+
   ngOnInit() {
-  
-    var surveyJSON = {
-      "locale": "it",
-      "focusFirstQuestionAutomatic": false,
-      "pages": [
-        {
-          "name": "Pagina 1 ",
-          "elements": [
-            {
-              "type": "text",
-              "name": "question1",
-              "title": {
-                "it": "Nome Prova",
-                "en": "Nametest"
-              },
-              "isRequired": true,
-              "placeHolder": {
-                "it": "Inserisci Nome"
-              }
-            },
-            {
-              "type": "text",
-              "name": "question2",
-              "title": {
-                "it": "Data Nascita"
-              },
-              "isRequired": true,
-              "inputType": "date"
-            },
-            {
-              "type": "checkbox",
-              "name": "question3",
-              "title": {
-                "it": "Scegli una risposta: "
-              },
-              "isRequired": true,
-              "choices": [
-                {
-                  "value": "item1",
-                  "text": {
-                    "it": "Angular 2+"
-                  }
-                },
-                {
-                  "value": "item2",
-                  "text": {
-                    "it": "ReactJs"
-                  }
-                },
-                {
-                  "value": "item3",
-                  "text": {
-                    "it": "JavaScript"
-                  }
-                }
-              ],
-              "choicesOrder": "asc"
-            },
-            {
-              "type": "boolean",
-              "name": "question4",
-              "title": {
-                "it": "Laureato?"
-              }
-            },
-            {
-              "type": "file",
-              "name": "question5",
-              "title": {
-                "it": "Inserisci Carta D'Identità"
-              },
-              "isRequired": true,
-              "showPreview": false,
-              "storeDataAsText": false,
-              "maxSize": 0
-            },
-            {
-              "type": "radiogroup",
-              "name": "question6",
-              "title": {
-                "it": "Scegli ambiente"
-              },
-              "isRequired": true,
-              "choices": [
-                {
-                  "value": "item1",
-                  "text": {
-                    "it": "Spring Boot"
-                  }
-                },
-                {
-                  "value": "item2",
-                  "text": {
-                    "it": "Eclipse"
-                  }
-                }
-              ],
-              "choicesOrder": "random"
-            }
-          ],
-          "title": "Sezione1",
-          "questionsOrder": "initial"
-        },
-        {
-          "name": "Pagina 2",
-          "elements": [
-            {
-              "type": "text",
-              "name": "question7",
-              "title": {
-                "it": "Inserisci email"
-              },
-              "isRequired": true,
-              "validators": [
-                {
-                  "type": "email"
-                }
-              ],
-              "inputType": "email",
-              "placeHolder": {
-                "it": "Email"
-              }
-            },
-            {
-              "type": "text",
-              "name": "question8",
-              "title": {
-                "it": "Inserisci Password"
-              }
-            },
-            {
-              "type": "text",
-              "name": "question9",
-              "title": {
-                "it": "Conferma Password"
-              }
-            },
-            {
-              "type": "dropdown",
-              "name": "question10",
-              "title": {
-                "it": "Età"
-              },
-              "choices": [
-                {
-                  "value": "item1",
-                  "text": {
-                    "it": "Minore 18"
-                  }
-                },
-                {
-                  "value": "item2",
-                  "text": {
-                    "it": "Over 30"
-                  }
-                },
-                {
-                  "value": "item3",
-                  "text": {
-                    "it": "Over 60"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "triggers": [
-        {
-          "type": "complete"
-        }
-      ],
-      "sendResultOnPageNext": true,
-      "showPageNumbers": true,
-      "clearInvisibleValues": "none",
-      "pagePrevText": {
-        "it": "indietro"
-      },
-      "pageNextText": {
-        "it": "avanti"
-      },
-      "completeText": {
-        "it": "finisci"
-      }
-    };
-    StylesManager.applyTheme("winterstone");
-    this.survey = new Survey(surveyJSON);
-    //survey.onComplete.add(sendDataToServer);
-    SurveyNG.render("surveyElement", { model: this.survey });
+
   }
+
+
   switchLanguage(language: string) {
     this.survey.locale = language;
     this.survey.render();
@@ -219,13 +52,102 @@ export class AppComponent implements OnInit{
     });
   }
 
+  /*  login() {
+     if (this.model.username == undefined || this.model.password == undefined || this.model.username == '' || this.model.password == '') {
+       alert('Compilare i campi \'Username\' e \'Password\' ');
+     } else {
+       if (this.model.username == "admin" && this.model.password == "password") {
+         this.route.navigate(['home']);
+       }
+     }
+   } */
+  /*  constructor(public oidcSecurityService: OidcSecurityService,
+     private router: Router
+ ) {
+     if (this.oidcSecurityService.moduleSetup) {
+         this.onOidcModuleSetup();
+     } else {
+         this.oidcSecurityService.onModuleSetup.subscribe(() => {
+             this.onOidcModuleSetup();
+         });
+     }
+ 
+     this.oidcSecurityService.onAuthorizationResult.subscribe(
+         (authorizationResult: AuthorizationResult) => {
+             this.onAuthorizationResultComplete(authorizationResult);
+         });
+ } */
+
+
+
+  ngOnDestroy(): void {
+  }
+
   login() {
-    if (this.model.username == undefined || this.model.password == undefined || this.model.username == '' || this.model.password == '') {
+    console.log('start login');
+    this.oidcSecurityService.authorize();
+    /* if (this.model.username == undefined || this.model.password == undefined || this.model.username == '' || this.model.password == '') {
       alert('Compilare i campi \'Username\' e \'Password\' ');
     } else {
-        if(this.model.username=="admin" && this.model.password=="password"){
-          this.route.navigate(['home']);
+      if (this.model.username == "admin" && this.model.password == "password") {
+        this.route.navigate(['home']);
+      }
+    } */
+  }
+
+  refreshSession() {
+    console.log('start refreshSession');
+    this.oidcSecurityService.authorize();
+  }
+
+  logout() {
+    console.log('start logoff');
+    this.oidcSecurityService.logoff();
+  }
+
+  private onOidcModuleSetup() {
+    console.log('on module setup');
+    if (window.location.hash) {
+      this.oidcSecurityService.authorizedImplicitFlowCallback();
+    } else {
+      if ('/autologin' !== window.location.pathname) {
+        this.write('redirect', window.location.pathname);
+      }
+      console.log('AppComponent:onModuleSetup');
+      this.oidcSecurityService.getIsAuthorized().subscribe((authorized: boolean) => {
+        if (!authorized) {
+          this.router.navigate(['/autologin']);
         }
+      });
     }
+  }
+
+  private onAuthorizationResultComplete(authorizationResult: AuthorizationResult) {
+
+    const path = this.read('redirect');
+    console.log(path ,'after const pèath')
+    console.log('Auth result received AuthorizationState:'
+      + authorizationResult.authorizationState
+      + ' validationResult:' + authorizationResult.validationResult);
+
+    if (authorizationResult.authorizationState === AuthorizationState.authorized) {
+      console.log(path ,': path relativo a AppComponent.componmenmt')
+      this.router.navigate([path]);
+    } else {
+      this.router.navigate(['/Unauthorized']);
+    }
+  }
+
+  private read(key: string): any {
+    const data = localStorage.getItem(key);
+    if (data != null) {
+      return JSON.parse(data);
+    }
+
+    return;
+  }
+
+  private write(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
   }
 }

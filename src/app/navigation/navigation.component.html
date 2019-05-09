@@ -1,0 +1,165 @@
+<!-- <nav class="bg-dark mb-4 navbar navbar-dark navbar-expand-md">
+    <a [routerLink]="['/home']" class="navbar-brand">
+        <em>Angular OIDC google STS</em>
+    </a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+        data-target="#topNavbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbarCollapse">
+        <ul class="mr-auto navbar-nav">
+            <li class="nav-item"><a class="nav-link" *ngIf="!isAuthorized" (click)="login()">Login</a></li>
+            <li class="nav-item"><a class="nav-link" *ngIf="isAuthorized" (click)="logout()">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" *ngIf="oidcSecurityService.checkSessionChanged"
+                    (click)="refreshSession()">Refresh Session</a></li>
+
+        </ul>
+        <ul class="navbar-nav"></ul>
+    </div>
+
+</nav> -->
+
+<!-- <div class='row'>
+        <div class='col-sm-12 body-content'>
+           
+        </div>
+    </div> -->
+
+<div style="text-align:center">
+    <div>
+        <div class="it-header-wrapper">
+            <div class="it-header-slim-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="it-header-slim-wrapper-content">
+                                <a [routerLink]="['/home']" class="navbar-brand">
+                                    <em>Agenzia per l'Italia Digitale</em>
+                                </a>
+                                <ul class="mr-auto navbar-nav">
+                                        <li ><button class="btn btn-primary btn-sm" *ngIf="!isAuthorized" (click)="login()">Login</button></li>
+                                        <li><button  class="btn btn-primary btn-sm" *ngIf="isAuthorized" (click)="logout()">Logout</button></li>
+                                        <li ><button *ngIf="oidcSecurityService.checkSessionChanged"
+                                                (click)="refreshSession()">Refresh Session</button></li>
+                            
+                                    </ul>
+                                <div class="nav-mobile">
+                                    <nav>
+                                        <a class="it-opener d-lg-none" data-toggle="collapse" href="#menu4"
+                                            role="button" aria-expanded="false" aria-controls="menu4">
+                                            <span>Agid Review</span>
+                                            <svg class="icon">
+                                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-expand"></use>
+                                            </svg>
+                                        </a>
+                                    </nav>
+                                </div>
+                                <div class="header-slim-right-zone" style="width: 23%;">
+                                    <div class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <span>ITA</span>
+                                            <svg class="icon d-none d-lg-block">
+                                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-expand"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="link-list-wrapper">
+                                                        <ul class="link-list">
+                                                            <li><a class="list-item" style="cursor: pointer;"
+                                                                    (click)="switchLanguage('it')"><span>ITA</span></a>
+                                                            </li>
+                                                            <li><a class="list-item" style="cursor: pointer;"
+                                                                    (click)="switchLanguage('en')"><span>ENG</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xs-4">
+                                            <svg style="border-radius: 50%;cursor: pointer;  margin-top: 11px;"
+                                                routerLink="/profilo"
+                                                class="icon icon-sm icon-primary bg-light text-white ">
+                                                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-user"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <span style="color:white;    font-size: initial;   position: relative;
+                      top:9px; " for="account">M.Rossi</span>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <button class="btn btn-primary btn-sm" style="width: 92px;">
+                                                <svg class="icon">
+                                                    <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-mail">
+                                                    </use>
+                                                </svg>
+                                                <span class="badge badge-light">9</span>
+                                                <span class="sr-only">Messaggi non letti</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="it-nav-wrapper">
+                    <div class="it-header-center-wrapper" style="height: 62px;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="it-header-center-content-wrapper">
+                                        <div class="it-brand-wrapper">
+                                            <a href="#">
+                                                <div class="it-brand-text">
+                                                    <h2>Portale Razionalizzazione</h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="it-header-navbar-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+            
+                <nav class="navbar navbar-expand-lg has-megamenu">
+                  <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false"
+                    aria-label="Toggle navigation" data-target="#nav10">
+                    <svg class="icon">
+                      <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-burger"></use>
+                    </svg>
+                  </button>
+                  <div class="navbar-collapsable" id="nav10" style="display: none;">
+                    <div class="overlay" style="display: none;"></div>
+                    <div class="close-div sr-only">
+                      <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
+                    </div>
+                    <div class="menu-wrapper">
+                      <ul class="navbar-nav">
+                        <li class="nav-item active"><a class="nav-link active" href="#"><span>Revisioni in corso </span><span
+                              class="sr-only">current</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><span>Qualifiche </span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><span>Visualizza Tutte le Revisioni </span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
