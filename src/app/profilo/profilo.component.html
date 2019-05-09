@@ -1,3 +1,206 @@
-<p>
-  profilo works!
-</p>
+<div class="it-header-slim-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="it-header-slim-wrapper-content">
+        
+          <div class="nav-mobile">
+            <nav>
+              <a class="it-opener d-lg-none" data-toggle="collapse" href="#menu1" role="button" aria-expanded="false" aria-controls="menu1">
+                <span>Menù </span>
+                <svg class="icon">
+                  <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-expand"></use>
+                </svg>
+              </a>
+              <div class="link-list-wrapper collapse" id="menu1">
+                <ul class="link-list">
+                    <li><a href="welcome/qualifiche">Qualifiche</a></li>
+                    <li><a href="#">Segnalazioni</a></li>
+                    <li><a href="#">Notifiche</a></li>
+                    <li><a href="/verifiche">Verifiche</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+<div class="div-prof">
+  <h4>Profilo Utente</h4>
+
+<div class="div-prof2">
+ <div class = "row" >
+       <div class="col-2"  >
+        <span >Nome: </span>
+       </div>
+       <div class="col">
+        <input type="text"   class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" readonly>
+       </div>
+ </div>
+</div>
+
+<div class="div-prof2">
+    <div class = "row" >
+          <div class="col-2"  >
+           <span >Cognome: </span>
+          </div>
+          <div class="col">
+           <input type="text" class="form-control" cognome="cognome" [(ngModel)]="model.cognome" #cognome="ngModel" readonly>
+          </div>
+    </div>
+   </div>
+
+   <div class="div-prof2">
+      <div class = "row" >
+            <div class="col-2"  >
+             <span >Data di nascita: </span>
+            </div>
+            <div class="col">
+             <input type="text" class="form-control" data_nasc="data_nasc" [(ngModel)]="model.data_nasc" #data_nasc="ngModel" readonly>
+            </div>
+      </div>
+     </div>
+
+     <div class="div-prof2">
+        <div class = "row" >
+              <div class="col-2"  >
+               <span >Email: </span>
+              </div>
+              <div class="col">
+               <input type="email" class="form-control" email="email" [(ngModel)]="model.email" #email="ngModel" readonly>
+              </div>
+        </div>
+       </div>
+
+       <div class="form-group" style="margin-top: 70px">
+          <label for="formGroupExampleInputWithHelp">Nome</label>
+          <input type="text" class="form-control" style="width: 30%" id="formGroupExampleInputWithHelp" placeholder={{this.model.name}} readonly>
+          <small class="form-text text-muted">Ulteriore testo informativo</small>
+        </div>
+
+        
+      <div class="row">
+        <!-- Button trigger modal -->
+<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalCenter">
+    Cambia Password
+</button>
+
+</div>  
+
+<form class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="form-group col-md-4 mb-3">
+      <label for="exampleInputPassword1">Vecchia Password</label>
+                 <input type="password" class="form-control input-password" id="exampleInputPassword1" name="password1" [(ngModel)]="model.password1" #password="ngModel" required
+                   aria-labelledby="infoPassword">
+                 <span class="password-icon" aria-hidden="true">
+                   <svg class="password-icon-visible icon icon-sm">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-visible"></use>
+                   </svg>
+                   <svg class="password-icon-invisible icon icon-sm d-none">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-invisible"></use>
+                   </svg>
+                 </span> 
+      <div class="valid-feedback">Password corretta</div>
+    </div>
+    
+  </div>
+ 
+</form>
+
+
+  
+
+
+  <div class="row" id="id_button">
+    <a href="/login">Esci</a>
+  </div>
+
+  </div>
+
+  
+
+</div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalCenter">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title">Modifica Password
+             </h5>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <svg class="icon">
+                   <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-close"></use>
+                </svg>
+             </button>
+          </div>
+          <div class="modal-body">
+             <div class="form-group">
+                 <label for="exampleInputPassword1">Vecchia Password</label>
+                 <input type="password" class="form-control input-password" id="exampleInputPassword1" name="password1" [(ngModel)]="model.password1" #password="ngModel" required
+                   aria-labelledby="infoPassword">
+                 <span class="password-icon" aria-hidden="true">
+                   <svg class="password-icon-visible icon icon-sm">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-visible"></use>
+                   </svg>
+                   <svg class="password-icon-invisible icon icon-sm d-none">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-invisible"></use>
+                   </svg>
+                 </span> 
+                 <div *ngIf = "var1==1">
+                    <div class="alert alert-danger" role="alert">
+                      Password Errata
+                    </div>
+                  </div>
+               </div>
+          </div>
+          <div class="modal-body">
+             <div class="form-group">
+                 <label for="exampleInputPassword2">Nuova Password</label>
+                 <input type="password" class="form-control2" id="exampleInputPassword2" name="password2" [(ngModel)]="model.password2" #password="ngModel" required
+                   aria-labelledby="infoPassword">
+                   <span class="password-icon" aria-hidden="true">
+                     <svg class="password-icon-visible icon icon-sm">
+                       <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-visible"></use>
+                     </svg>
+                     <svg class="password-icon-invisible icon icon-sm d-none">
+                       <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-invisible"></use>
+                     </svg>
+                   </span> 
+               </div>
+          </div>
+          <div class="modal-body">
+             <div class="form-group">
+                 <label for="exampleInputPassword3">Conferma Password</label>
+                 <input type="password" class="form-control2" id="exampleInputPassword3" name="password3" [(ngModel)]="model.password3" #password="ngModel" required
+                   aria-labelledby="infoPassword">
+                 <span class="password-icon" aria-hidden="true">
+                   <svg class="password-icon-visible icon icon-sm">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-visible"></use>
+                   </svg>
+                   <svg class="password-icon-invisible icon icon-sm d-none">
+                     <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-password-invisible"></use>
+                   </svg>
+                 </span> 
+               </div>
+          </div>
+        
+          <div class="modal-footer">
+             <button class="btn btn-primary btn-sm" data-dismiss="modal" type="button" (click)="cambia_pass()">Ok</button>
+          </div>
+      
+       </div>
+    </div>
+ </div>
+
+ 
+ 
+
+

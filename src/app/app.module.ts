@@ -17,6 +17,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DettaglioVerificheComponent } from './dettaglio-verifiche/dettaglio-verifiche.component';
 import { RouterModule } from '@angular/router';
 import { ProfiloComponent } from './profilo/profilo.component';
+import { VerificheComponent } from './verifiche/verifiche.component';
 
 @NgModule({
    declarations: [
@@ -24,7 +25,8 @@ import { ProfiloComponent } from './profilo/profilo.component';
       LoginComponent,
       WelcomePageComponent,
       DettaglioVerificheComponent,
-      ProfiloComponent
+      ProfiloComponent,
+      VerificheComponent
    ],
    imports: [
       FormsModule,

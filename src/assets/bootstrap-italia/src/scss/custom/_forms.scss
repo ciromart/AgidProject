@@ -22,9 +22,7 @@ label {
     top: 0;
     font-size: 1rem;
     cursor: text;
-    display: block;
     max-width: 100%;
-    width: auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -135,6 +133,7 @@ textarea {
   &.is-valid ~ .warning-feedback {
     display: block;
   }
+  
 }
 
 .warning-feedback {

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DettaglioVerificheComponent } from './dettaglio-verifiche/dettaglio-verifiche.component';
 import { ProfiloComponent } from './profilo/profilo.component';
+import { VerificheComponent} from './verifiche/verifiche.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
         {path: '', redirectTo: 'welcome/qualifiche', pathMatch: 'full'},
     ]
   },
+  { path: 'verifiche', component: VerificheComponent},
   { path: 'dettaglio-verifiche', component: DettaglioVerificheComponent},
   { path: 'profilo', component: ProfiloComponent}
 
